@@ -3,7 +3,7 @@ const User = require("../models/User");
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
 
-//Create a user using POST: "/api/auth/createuser".  Doesn't require auth
+//Create a user using POST: "/api/auth/createuser".  Doesn't require login
 router.post(
   "/createuser",
   [
