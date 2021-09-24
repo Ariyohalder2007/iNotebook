@@ -1,9 +1,15 @@
 const express= require('express')
 const router=express.Router()
+const Notes = require("../models/Notes")
 
-router.get('/', (req, res)=>{
+const fetchuser=require('../middleware/fetchuser')
 
-    res.send('hello Notes')
+
+//Get  all the notes using GET: "/api/auth/fetchallnotes".  Require login.
+router.get('/fecthallnotes', fetchuser,async(req, res)=>{
+    const notes= await Notes.find({user: req.user.id})
+    res.send({notes})
+
 })
 
 module.exports=router
