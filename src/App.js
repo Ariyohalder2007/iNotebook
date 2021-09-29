@@ -1,20 +1,16 @@
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-import About from './components/About'
-
+import About from "./components/About";
+import NoteState from "./context/NoteState";
 
 function App() {
-
   return (
-    <Router>
-      <Navbar/>
-      <h1>iNotebook</h1>
-      <Switch>
+    <NoteState>
+      <Router>
+        <Navbar />
+        <h1>iNotebook</h1>
+        <Switch>
           <Route path="/about" exact>
             <About />
           </Route>
@@ -22,9 +18,8 @@ function App() {
             <Home />
           </Route>
         </Switch>
-
-
-    </Router>
+      </Router>
+    </NoteState>
   );
 }
 
