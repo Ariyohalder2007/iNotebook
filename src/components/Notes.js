@@ -6,6 +6,7 @@ import NoteItem from "./NoteItem";
 
 function Notes() {
     const context=useContext(noteContext);
+    // eslint-disable-next-line
     const {notes, setNotes}=context;
 
     return (
