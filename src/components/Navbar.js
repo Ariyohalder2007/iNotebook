@@ -1,16 +1,14 @@
-import React, { useEffect} from "react";
+import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
 function Navbar() {
   let location = useLocation();
-  useEffect(() => {
-    console.log(location.pathname);
-  }, [location]);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          iNotebook
+          iNotebook <i className="fas fa-apple-alt"></i>
         </Link>
         <button
           className="navbar-toggler"
