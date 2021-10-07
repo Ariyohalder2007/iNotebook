@@ -2,21 +2,21 @@ import React, { useContext, useState } from "react";
 import noteContext from "../context/noteContext";
 
 function AddNote() {
-    const context=useContext(noteContext);
-    // eslint-disable-next-line
-    const { addNote}=context;
-    const [note, setNote] = useState({title:"", description:"", tag:""})
-    const handleClick=(e)=>{
-        e.preventDefault()
-        addNote(note.title, note.description, note.tag)
-    }
+  const context = useContext(noteContext);
+  // eslint-disable-next-line
+  const { addNote } = context;
+  const [note, setNote] = useState({ title: "", description: "", tag: "" });
+  const handleClick = (e) => {
+    e.preventDefault();
+    addNote(note.title, note.description, note.tag);
+  };
 
-    const onChange=(e)=>{
-        setNote({...note, [e.target.name]: e.target.value})
-    }
-    return (
-        <div>
-            <h1>Add a Note</h1>
+  const onChange = (e) => {
+    setNote({ ...note, [e.target.name]: e.target.value });
+  };
+
+  return (
+    <div>
       <form>
         <div className="mb-3">
           <label htmlFor="title" className="form-label">
@@ -29,7 +29,6 @@ function AddNote() {
             name="title"
             onChange={onChange}
           />
-
         </div>
         <div className="mb-3">
           <label htmlFor="description" className="form-label">
@@ -59,11 +58,11 @@ function AddNote() {
         </div>
 
         <button type="submit" onClick={handleClick} className="btn btn-primary">
-          Add
+          Add <i className="fas fa-plus"></i>
         </button>
       </form>
-        </div>
-    )
+    </div>
+  );
 }
 
-export default AddNote
+export default AddNote;

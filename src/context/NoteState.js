@@ -52,7 +52,7 @@ const NoteState=(props)=>{
 
     // Delete a Note
     const deleteNote=async(id)=>{
-        //TODO: API Calling
+        // API Calling
         const response = await fetch(`${host}/api/notes/deletenote/${id}`, {
             method: 'DELETE',
             headers: {
@@ -73,14 +73,14 @@ const NoteState=(props)=>{
     //Edit a Note
     const editNote=async(id, title, description, tag)=>{
         const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
-            method: 'GET',
+            method: 'PUT',
             headers: {
               'Content-Type': 'application/json',
               'auth-token':"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE0ZGU0ZDZiYTJjZGU5NjAwNzc0NTc1In0sImlhdCI6MTYzMjg0NzY0N30.qh7PHd_bECmyNoglQQqJ0D01oHcNdQ8zOoVESS-mmxc"
             },
             body: JSON.stringify({title, description, tag})
           });
-          const json= response.json();
+          const json= await response.json();
         //TODO: API CAlling for editiing
         for (let index = 0; index < notes.length; index++) {
             const element = notes[index];
